@@ -5,6 +5,13 @@ const dropInfo = document.querySelector('.downInfo')
 const dropPanel = document.querySelector('.dropPanel')
 const headerLink = document.querySelector('.headerLinkMore')
 const linkDrop = document.querySelectorAll('.linkDrop')
+const navAlt = document.querySelector('.navAlt')
+const hamburger = document.querySelector('.hamburger')
+const themAlt = document.querySelector('.btnThemAlt')
+const dropInfoAlt = document.querySelector('.dropInfoAlt')
+const linkAltDrop = document.querySelector('.linkAltDrop')
+const dropLinkAltBack = document.querySelector('.dropLinkAltBack')
+
 
 
 
@@ -18,6 +25,38 @@ them.addEventListener('click', () => {
     them.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
     localStorage.them = document.body.classList || 'light'
 })
+
+
+
+if (!localStorage.themAlt) localStorage.themAlt = 'light'
+document.body.classList = localStorage.themAlt
+themAlt.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
+
+themAlt.addEventListener('click', () => {
+    document.body.classList.toggle('dark')
+    themAlt.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
+    localStorage.themAlt = document.body.classList || 'light'
+})
+
+
+
+const hamburgerClick = () => {
+    isnavAlt = navAlt.classList.toggle('navAltAnimation')
+    hamburger.classList.toggle('hambugerActive')
+    if (isnavAlt) {
+        hamburger.style.backgroundColor = '#000'
+    } else {
+        let scrollPos = window.scrollY
+
+        if (scrollPos > 1) {
+            hamburger.style.backgroundColor = '#000'
+        } else {
+            hamburger.style.backgroundColor = 'rgba(0, 0, 0, .4)'
+        }
+    }
+}
+
+hamburger.addEventListener('click', hamburgerClick)
 
 
 
@@ -35,6 +74,7 @@ const scrollWatch = () => {
 document.addEventListener('DOMContentLoaded', scrollWatch)
 
 window.addEventListener('scroll', scrollWatch)
+
 
 
 const clickWatch = () => {
@@ -88,3 +128,40 @@ const linkClick = () => {
 }
 
 more.addEventListener('click', linkClick)
+
+
+
+const hamburgerScroll = () => {
+    let scrollPos = window.scrollY
+
+    if (scrollPos > 1) {
+        hamburger.style. backgroundColor = '#000'
+    } else {
+        hamburger.style. backgroundColor = 'rgba(0, 0, 0, .4)'
+    }
+}
+
+window.addEventListener('scroll', hamburgerScroll)
+
+
+
+const linkAltDropClick = () => {
+    dropInfoAlt.classList.add('dropInfoAltAnimation')
+}
+
+linkAltDrop.addEventListener('click', linkAltDropClick)
+
+
+const linkAltDropBackClick = () => {
+    dropInfoAlt.classList.remove('dropInfoAltAnimation')
+}
+
+dropLinkAltBack.addEventListener('click', linkAltDropBackClick)
+
+
+
+const hamburgerBackClick = () => {
+    dropInfoAlt.classList.remove('dropInfoAltAnimation')
+}
+
+hamburger.addEventListener('click', hamburgerBackClick)
