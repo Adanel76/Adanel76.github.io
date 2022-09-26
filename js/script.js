@@ -12,6 +12,17 @@ const dropInfoAlt = document.querySelector('.dropInfoAlt')
 const linkAltDrop = document.querySelector('.linkAltDrop')
 const dropLinkAltBack = document.querySelector('.dropLinkAltBack')
 const main = document.querySelector('.main')
+const navAltAnimation = document.querySelector('.navAltAnimation')
+const head = document.querySelector('.head')
+const title = document.querySelector('.title')
+const titleAlt = document.querySelector('.titleAlt')
+const generalInfo = document.querySelector('.generalInfo')
+const generalInfoAlt = document.querySelector('.generalInfoAlt')
+const geographyInfo = document.querySelector('.geographyInfo')
+const hightlights = document.queryCommandIndeterm('.hightlights')
+const climate = document.querySelector('.climate')
+const bestTime = document.querySelector('.bestTime')
+const footer = document.querySelector('.footer')
 
 
 
@@ -196,8 +207,10 @@ const handleTouchMove = (event) => {
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
         if (xDiff > 0) {
             navAlt.classList.add('navAltAnimation')
+            hamburger.classList.add('hambugerActive')
         } else {
             navAlt.classList.remove('navAltAnimation')
+            hamburger.classList.remove('hambugerActive')
         }
     } else {
         if (yDiff > 0) {
@@ -213,3 +226,82 @@ const handleTouchMove = (event) => {
 
 document.addEventListener('touchstart', handleTouchStart, false)
 document.addEventListener('touchmove', handleTouchMove, false)
+
+
+const canclePanelHead = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+head.addEventListener('touchstart', canclePanelHead, false)
+
+
+const canclePanelTitle = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+title.addEventListener('touchstart', canclePanelTitle, false)
+
+
+const canclePanelTitleAlt = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+titleAlt.addEventListener('touchstart', canclePanelTitleAlt, false)
+
+
+const canclePanelGeneralInfo = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+generalInfo.addEventListener('touchstart', canclePanelGeneralInfo, false)
+
+
+const canclePanelGeneralInfoAlt = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+generalInfoAlt.addEventListener('touchstart', canclePanelGeneralInfoAlt, false)
+
+const canclePanelGeographyInfo = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+geographyInfo.addEventListener('touchstart', canclePanelGeographyInfo, false)
+
+
+const canclePanelHightlights = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+hightlights.addEventListener('touchstart', canclePanelHightlights, false)
+
+
+const canclePanelClimate = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+climate.addEventListener('touchstart', canclePanelClimate, false)
+
+
+const canclePanelBestTime = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+bestTime.addEventListener('touchstart', canclePanelBestTime, false)
+
+
+const canclePanelFooter = () => {
+    navAlt.classList.remove('navAltAnimation')
+    hamburger.classList.remove('hambugerActive')
+}
+
+footer.addEventListener('touchstart', canclePanelFooter, false)
