@@ -166,3 +166,50 @@ const hamburgerBackClick = () => {
 }
 
 hamburger.addEventListener('click', hamburgerBackClick)
+
+
+
+
+
+const logBlock = document.querySelector('.main')
+
+let x1 = null
+let y1 = null
+
+const handleTouchStart = (event) => {
+    const firstTouch = event.touches[0]
+
+    x1 = firstTouch.clientX
+    y1 = firstTouch.clientY
+}
+
+const handleTouchMove = (event) => {
+    if (!x1 || !y1) {
+        return false
+    }
+    let x2 = event.touches[0].clientX
+    let y2 = event.touches[0].clientY
+
+    let xDiff = x2 - x1
+    let yDiff = y2 - y1
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            navAlt.classList.add('navAltAnimation')
+        } else {
+            navAlt.classList.remove('navAltAnimation')
+        }
+    } else {
+        if (yDiff > 0) {
+            console.log('down')
+        } else {
+            console.log('top')
+        }
+    }
+
+    x1 = null
+    y1 = null
+}
+
+document.addEventListener('touchstart', handleTouchStart, false)
+document.addEventListener('touchmove', handleTouchMove, false)
