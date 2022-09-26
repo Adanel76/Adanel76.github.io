@@ -11,6 +11,7 @@ const themAlt = document.querySelector('.btnThemAlt')
 const dropInfoAlt = document.querySelector('.dropInfoAlt')
 const linkAltDrop = document.querySelector('.linkAltDrop')
 const dropLinkAltBack = document.querySelector('.dropLinkAltBack')
+const main = document.querySelector('.main')
 
 
 
