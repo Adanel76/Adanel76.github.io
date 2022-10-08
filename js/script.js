@@ -51,10 +51,18 @@ themAlt.addEventListener('click', () => {
 })
 
 
+i = null
 
 const hamburgerClick = () => {
     isnavAlt = navAlt.classList.toggle('navAltAnimation')
-    hamburger.classList.toggle('hambugerActive')
+    isBool = hamburger.classList.toggle('hambugerActive')
+
+    i++
+    if (i % 2 == 1) {
+        main.style.overflow = 'hidden'
+    } else {
+        main.style.overflow = 'scroll'
+    }
     if (isnavAlt) {
         hamburger.style.backgroundColor = '#000'
     } else {
@@ -66,9 +74,34 @@ const hamburgerClick = () => {
             hamburger.style.backgroundColor = 'rgba(0, 0, 0, .4)'
         }
     }
+
 }
 
 hamburger.addEventListener('click', hamburgerClick)
+
+
+
+document.addEventListener('DOMContentLoaded', () => { // Структура страницы загружена и готова к взаимодействию
+
+    const button = document.querySelector('.hamburger') // находим кнопку для открытия/закрытия окна навигации
+    const nav = document.querySelector('.navAlt') // находим окно навигации
+  
+    window.addEventListener('click', e => { // при клике в любом месте окна браузера
+      const target = e.target // находим элемент, на котором был клик
+      if (!target.closest('.navAlt') && !target.closest('.hamburger')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+        navAlt.classList.remove('navAltAnimation') // то закрываем окно навигации, удаляя активный класс
+        hamburger.classList.remove('hambugerActive') // то закрываем окно навигации, удаляя активный класс
+        i++
+        
+        if (i % 2 == 1) {
+            main.style.overflow = 'hidden'
+        } else {
+            main.style.overflow = 'scroll'
+        }
+      }
+    })
+  
+  })
 
 
 
@@ -205,6 +238,12 @@ const handleTouchMove = (event) => {
     let yDiff = y2 - y1
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        i++
+        if (i % 2 == 1) {
+            main.style.overflow = 'hidden'
+        } else {
+            main.style.overflow = 'scroll'
+        }
         if (xDiff > 0) {
             navAlt.classList.add('navAltAnimation')
             hamburger.classList.add('hambugerActive')
