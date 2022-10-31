@@ -28,18 +28,6 @@ const footer = document.querySelector('.footer')
 
 
 
-if (!localStorage.them) localStorage.them = 'light'
-document.body.classList = localStorage.them
-them.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
-
-them.addEventListener('click', () => {
-    document.body.classList.toggle('dark')
-    them.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
-    localStorage.them = document.body.classList || 'light'
-})
-
-
-
 if (!localStorage.themAlt) localStorage.themAlt = 'light'
 document.body.classList = localStorage.themAlt
 themAlt.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
@@ -51,18 +39,10 @@ themAlt.addEventListener('click', () => {
 })
 
 
-i = null
-
 const hamburgerClick = () => {
     isnavAlt = navAlt.classList.toggle('navAltAnimation')
     isBool = hamburger.classList.toggle('hambugerActive')
-
-    i++
-    if (i % 2 == 1) {
-        main.style.overflow = 'hidden'
-    } else {
-        main.style.overflow = 'scroll'
-    }
+    
     if (isnavAlt) {
         hamburger.style.backgroundColor = '#000'
     } else {
@@ -79,25 +59,14 @@ const hamburgerClick = () => {
 
 hamburger.addEventListener('click', hamburgerClick)
 
-
-
 document.addEventListener('DOMContentLoaded', () => { // Структура страницы загружена и готова к взаимодействию
 
-    const button = document.querySelector('.hamburger') // находим кнопку для открытия/закрытия окна навигации
-    const nav = document.querySelector('.navAlt') // находим окно навигации
-  
     window.addEventListener('click', e => { // при клике в любом месте окна браузера
       const target = e.target // находим элемент, на котором был клик
-      if (!target.closest('.navAlt') && !target.closest('.hamburger')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
+      if (!target.closest('.navAlt') && !target.closest('.hamburger') && !target.closest('.dropInfoAlt')) { // если этот элемент или его родительские элементы не окно навигации и не кнопка
         navAlt.classList.remove('navAltAnimation') // то закрываем окно навигации, удаляя активный класс
         hamburger.classList.remove('hambugerActive') // то закрываем окно навигации, удаляя активный класс
-        i++
-        
-        if (i % 2 == 1) {
-            main.style.overflow = 'hidden'
-        } else {
-            main.style.overflow = 'scroll'
-        }
+        dropInfoAlt.classList.remove('dropInfoAltAnimation') // то закрываем окно навигации, удаляя активный класс
       }
     })
   
@@ -201,7 +170,7 @@ const linkAltDropBackClick = () => {
     dropInfoAlt.classList.remove('dropInfoAltAnimation')
 }
 
-dropLinkAltBack.addEventListener('click', linkAltDropBackClick)
+dropLinkAltBack.addEventListener('click', linkAltDropBackClick) 
 
 
 
@@ -238,12 +207,6 @@ const handleTouchMove = (event) => {
     let yDiff = y2 - y1
 
     if (Math.abs(xDiff) > Math.abs(yDiff)) {
-        i++
-        if (i % 2 == 1) {
-            main.style.overflow = 'hidden'
-        } else {
-            main.style.overflow = 'scroll'
-        }
         if (xDiff > 0) {
             navAlt.classList.add('navAltAnimation')
             hamburger.classList.add('hambugerActive')
