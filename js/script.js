@@ -27,6 +27,16 @@ const footer = document.querySelector('.footer')
 
 
 
+if (!localStorage.them) localStorage.them = 'light'
+document.body.classList = localStorage.them
+them.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
+
+them.addEventListener('click', () => {
+    document.body.classList.toggle('dark')
+    them.innerText =  document.body.classList.contains('dark') ? 'Светлая тема' : 'Тёмная тема'
+    localStorage.them = document.body.classList || 'light'
+})
+
 
 if (!localStorage.themAlt) localStorage.themAlt = 'light'
 document.body.classList = localStorage.themAlt
