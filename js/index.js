@@ -171,3 +171,13 @@ function toNum(str) {
     body.classList.remove("lock");
   });
   
+  document.addEventListener("DOMContentLoaded", function() {
+    var overlay = document.getElementById("registration-overlay");
+    overlay.style.display = "block";
+});
+
+document.getElementById("registration-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    var overlay = document.getElementById("registration-overlay");
+    overlay.style.display = "none";
+});

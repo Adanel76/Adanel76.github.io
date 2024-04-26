@@ -12,6 +12,111 @@
     Магазин
   </title>
   <script src="js/index.js" defer></script>
+
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    }
+
+    .loyalty-card {
+        max-width: 300px;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .loyalty-card-header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .loyalty-card-content {
+        padding: 20px;
+    }
+
+    .loyalty-card-number, .loyalty-points {
+        margin-bottom: 20px;
+    }
+
+    .loyalty-card-number h2, .loyalty-points h2 {
+        margin-top: 0;
+    }
+
+    .loyalty-card-number p, .loyalty-points p {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.registration-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.registration-form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+  </style>
+
 </head>
 <body>
 
@@ -23,6 +128,27 @@
       <!-- <a href="basket.html">Корзина</a> -->
     </nav>
   </header>
+
+  <div id="registration-overlay" class="overlay">
+    <div class="registration-form">
+        <h2>Регистрация скидочной карты</h2>
+        <form action="#" method="post" id="registration-form">
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <button type="submit" id="register-btn">Регистрация</button>
+        </form>
+    </div>
+</div>
 
   <section class="sliderSect">
     <div class="container">
@@ -260,7 +386,7 @@
         </div>
       </div>
   
-  
+      
   
       <div class="popup__item">
         <div class="popup__cost">
@@ -280,6 +406,23 @@
       </div>
       <button class="popup__close" id="popup_close">&#10006;</button>
     </div>
+
+    <div class="loyalty-card">
+      <div class="loyalty-card-header">
+          <h1>My Loyalty Card</h1>
+      </div>
+      <div class="loyalty-card-content">
+          <div class="loyalty-card-number">
+              <h2>Loyalty Card Number</h2>
+              <p class="number">1234 5678 9012 3456</p>
+          </div>
+          <div class="loyalty-points">
+              <h2>Loyalty Points</h2>
+              <p class="points">500 points</p>
+          </div>
+      </div>
+  </div>
+
   </div>
  
 
@@ -290,7 +433,7 @@
  <script src="./scripts/main.js"></script>
 
   <footer>
-    <p>
+    <p class="abotLink">
       <a href="about.html">
         О компании
       </a>
